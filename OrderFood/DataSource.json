@@ -1,0 +1,192 @@
+{
+  "User": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin",
+      "name": "Adminstrator",
+      "role_id": 0,
+      "money": 6846840
+    },
+    {
+      "id": 234,
+      "username": "ta1o9er",
+      "password": "123456",
+      "name": "Thế Anh Đào",
+      "role_id": 1,
+      "money": 6467
+    },
+    {
+      "id": 44,
+      "username": "theanh",
+      "password": "123456",
+      "name": "Thế Anh ",
+      "role_id": 1,
+      "money": 3615
+    },
+    {
+      "id": 224,
+      "username": "hihihi",
+      "password": "123456",
+      "name": "Đào",
+      "role_id": 1,
+      "money": 0
+    },
+    {
+      "id": 235,
+      "username": "r",
+      "password": "123",
+      "name": "5",
+      "role_id": 0,
+      "money": 0
+    },
+    {
+      "id": 236,
+      "username": "h",
+      "password": "123",
+      "name": "h",
+      "role_id": 0,
+      "money": 3242
+    },
+    {
+      "id": 237,
+      "username": "taaa",
+      "password": "123",
+      "name": "taaa",
+      "role_id": 0,
+      "money": 0
+    },
+    {
+      "id": 238,
+      "username": "ssss",
+      "password": "123",
+      "name": "ssss",
+      "role_id": 0,
+      "money": 0
+    },
+    {
+      "id": 239,
+      "username": "e",
+      "password": " ",
+      "name": "haha",
+      "role_id": 0,
+      "money": 0
+    }
+  ],
+  "Dish": [
+    {
+      "id": 1,
+      "name": "This is food 1",
+      "id_category": 1,
+      "description": [
+        "tp abc",
+        "tp 123",
+        "aaaaa"
+      ],
+      "image": "",
+      "ingredient": [
+        "không có đâu"
+      ],
+      "price": 456456
+    },
+    {
+      "id": 2,
+      "name": "This is food hihi",
+      "id_category": 2,
+      "description": [
+        "tp abc"
+      ],
+      "image": "",
+      "ingredient": [
+        "không có đâu"
+      ],
+      "price": 34534
+    },
+    {
+      "id": 3,
+      "name": "This is food 3",
+      "id_category": 3,
+      "description": [
+        "tp abc"
+      ],
+      "image": "",
+      "ingredient": [
+        "không có đâu"
+      ],
+      "price": 3333
+    },
+    {
+      "id": 4,
+      "name": "This is food 44",
+      "id_category": 4,
+      "description": [
+        "tp abc"
+      ],
+      "image": "",
+      "ingredient": [
+        "không có đâu"
+      ],
+      "price": 2222
+    }
+  ],
+  "DishCategory": [
+    {
+      "id": 0,
+      "name": "Untitled category"
+    },
+    {
+      "id": 1,
+      "name": "eatClean"
+    },
+    {
+      "id": 2,
+      "name": "Keto"
+    },
+    {
+      "id": 3,
+      "name": "Low-carb"
+    }
+  ],
+  "Order": [
+    {
+      "id_user": 1,
+      "item": {
+        "1": 15
+      }
+    },
+    {
+      "id_user": 236,
+      "item": {
+        "1": 2,
+        "4": 10,
+        "3": 1
+      }
+    },
+    {
+      "id_user": 44,
+      "item": {
+        "1": 3,
+        "4": 5
+      }
+    },
+    {
+      "id_user": 234,
+      "item": {
+        "2": 19,
+        "3": 11,
+        "1": 5,
+        "4": 9
+      }
+    }
+  ],
+  "Role": [
+    {
+      "id": 0,
+      "name": "adminstrator"
+    },
+    {
+      "id": 1,
+      "name": "customer"
+    }
+  ]
+}
