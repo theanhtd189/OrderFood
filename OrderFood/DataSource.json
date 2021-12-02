@@ -6,7 +6,7 @@
       "password": "admin",
       "name": "Adminstrator",
       "role_id": 0,
-      "money": 1013232.0
+      "money": 0.0
     },
     {
       "id": 234,
@@ -14,7 +14,7 @@
       "password": "123456",
       "name": "Thế Anh Đào",
       "role_id": 1,
-      "money": 0.0
+      "money": 912912.0
     },
     {
       "id": 44,
@@ -150,10 +150,7 @@
   "Orders": [
     {
       "user_id": 1,
-      "item": {
-        "3": 8,
-        "4": 444
-      }
+      "item": {}
     },
     {
       "user_id": 236,
@@ -173,7 +170,7 @@
     {
       "user_id": 234,
       "item": {
-        "1": 17
+        "1": 2
       }
     }
   ],

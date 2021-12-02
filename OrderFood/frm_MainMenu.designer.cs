@@ -47,7 +47,6 @@ namespace OrderFood
             this.btnThaydoi = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.lbHeader = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.right.SuspendLayout();
             this.pnlChinh.SuspendLayout();
@@ -155,7 +154,6 @@ namespace OrderFood
             this.lb.Size = new System.Drawing.Size(169, 36);
             this.lb.TabIndex = 0;
             this.lb.Text = "WELCOME";
-            this.lb.Click += new System.EventHandler(this.lbHeader_Click);
             // 
             // panel1
             // 
@@ -231,7 +229,6 @@ namespace OrderFood
             this.btnThaydoi.TabIndex = 1;
             this.btnThaydoi.Text = "Change";
             this.btnThaydoi.UseVisualStyleBackColor = false;
-            this.btnThaydoi.Click += new System.EventHandler(this.btnChangeQuantity_Click);
             // 
             // btnXoa
             // 
@@ -260,23 +257,12 @@ namespace OrderFood
             this.lbHeader.Text = "User\'s Name";
             this.lbHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(77, 267);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
             // frm_MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1323, 622);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.lbHeader);
             this.Controls.Add(this.right);
@@ -319,6 +305,5 @@ namespace OrderFood
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.ToolStripMenuItem tsDishManager;
         private System.Windows.Forms.ToolStripMenuItem accountManangerToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
     }
 }

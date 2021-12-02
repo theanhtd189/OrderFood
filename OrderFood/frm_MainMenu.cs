@@ -30,12 +30,12 @@ namespace OrderFood
             lbHeader.Text = f_user.GetUser(user_id).name;
             ReLoad();
             Show_List_Food();
-            //CreateCart();
             Create_Order_Detail();
             Load_List_Dish_Category_To_Menu();
             if(!f_account.CheckIsAdmin(user_id)) //Check if the logged in user is "Admin" or "Customer"
             {
                 tsDishManager.Visible = false;
+                tsAccount.Visible = false;
             }
         }
         public frm_MainMenu()
@@ -288,28 +288,9 @@ namespace OrderFood
             throw new NotImplementedException();
         }
 
-        /*  public void AddCart(int id)
- {
-     Panel pnl = new Panel();
-     var food = f_dish.GetDish(id);
-     pnl.Size = new System.Drawing.Size(252, 25);
-     pnl.Dock = DockStyle.Right;
-     pnl.Location = new Point(380, 260);
-     pnl.BorderStyle = BorderStyle.Fixeitemingle;
-     Label lb = new Label();
-     lb.Text = food.name + " - "  + food.money+"Kcal";
-     lb.Left = ( pnl.Width) / 5;
-     lb.Top = pnl.Height / 5;
-     pnl.Controls.Add(lb);
-     right.Controls.Add(pnl);
- }*/
+        //Remove element from order list in UI
         public void DeleteCard()
         {
-            /*var n = right.Controls.OfType<Panel>();
-            foreach(var i in n)
-            {
-                right.Controls.Remove(i);
-            }*/
             right.Controls.Clear();
             ReLoad();
         }
@@ -360,14 +341,14 @@ namespace OrderFood
             }
             this.Show();
         }
-
+/*
         private void button3_Click(object sender, EventArgs e)
         {
             DeleteCard();
             f_order.DeleteOrder(user_id);
             CreateCart();
             ReLoad();
-        }
+        }*/
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -379,10 +360,7 @@ namespace OrderFood
 
         }
 
-        private void lbHeader_Click(object sender, EventArgs e)
-        {
-
-        }
+        //Remove an item from order list in UI
         private void btnRemoveSingleItem(object sender, EventArgs e)
         {
             Button triggeredButton = (Button)sender;

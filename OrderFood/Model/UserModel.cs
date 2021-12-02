@@ -38,7 +38,7 @@ namespace OrderFood.Model
         }
         public User GetUser(int user_id)
         {
-            db = JsonConvert.DeserializeObject<Database>(File.ReadAllText(file));
+            RefreshDatabase();
             return db.Users.SingleOrDefault(x => x.id == user_id);
         }
 

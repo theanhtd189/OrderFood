@@ -22,7 +22,10 @@ namespace OrderFood.Model
             file = GetDataSourcePath(filename); //Find the file's path in the project
             db = JsonConvert.DeserializeObject<Database>(File.ReadAllText(file)); //Convert json data to executable data for the program
         }
-        public void ReloadDatabase()
+        /// <summary>
+        /// Refresh and update database changes
+        /// </summary>
+        public void RefreshDatabase()
         {
             db = JsonConvert.DeserializeObject<Database>(File.ReadAllText(file)); 
         }
