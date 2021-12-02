@@ -31,7 +31,23 @@ namespace OrderFood.Model
 
         public DishCategory GetDishCategory(int id)
         {
-            return ListCategory().SingleOrDefault(x => x.id == id);
+            return db.DishCategories.SingleOrDefault(x => x.id == id);
+        }
+        public List<DishCategory> GetList()
+        {
+            return db.DishCategories;
+        }
+        public int CreateIDCategory()
+        {
+            int max = 0;
+            var list = GetList();
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].id > max)
+                    max = list[i].id;
+            }
+            return max + 1;
+
         }
     }
 }

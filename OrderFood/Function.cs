@@ -27,18 +27,18 @@ namespace OrderFood
             return directory.ToString();
         }
         // nguoi dung
-        public List<User> ListUser()
+/*        public List<User> ListUser()
         {
-            return db.User;           
-        }
-        public User GetUser(int id)
+            return db.Users;           
+        }*/
+/*        public User GetUser(int id)
         {
             return ListUser().SingleOrDefault(x => x.id == id);
         }
         public User GetUser(string username)
         {
             return ListUser().SingleOrDefault(x => x.username==username);
-        }
+        }*/
 /*        public int CreateIDUser()
         {
             int max = 0;
@@ -92,12 +92,12 @@ namespace OrderFood
             }
         }
 */        
-/*        public void CalculateTotalMoney(int id_user)
+/*        public void CalculateTotalMoney(int user_id)
         {
             try
             {
                 var t = 0;
-                var td = GetOrder(id_user);
+                var td = GetOrder(user_id);
 
                 if (td!=null && td.item.Count>0)
                 {
@@ -109,7 +109,7 @@ namespace OrderFood
                         t = t + food.price * sl;
                     }
                 }
-                GetUser(id_user).money = t;
+                GetUser(user_id).money = t;
                 var c = JsonConvert.SerializeObject(db, Formatting.Indented);
                 File.WriteAllText(file, c);
             }
@@ -152,16 +152,16 @@ namespace OrderFood
             }
         }
 */        //hang muc
-        public List<DishCategory> ListCategory()
+/*        public List<DishCategory> ListCategory()
         {
             return db.DishCategory;
         }
         public List<Dish> ListDish()
         {
             return db.Dish;
-        }
+        }*/
         /// món
-        public bool InsertDish(string name)
+/*        public bool InsertDish(string name)
         {
             try
             {
@@ -193,16 +193,16 @@ namespace OrderFood
         public Dish GetDish(int id)
         {
             return ListDish().SingleOrDefault(x => x.id == id);
-        }
+        }*/
         /*public List<Dish> GetDishByCategory(int id)
         {
             return ListDish().Where(x => x.id_category == id).ToList();
         }*/
-/*        public bool AddDish(int id_user, int id_food, int slg = 1)
+/*        public bool AddDish(int user_id, int id_food, int slg = 1)
         {
             try
             {
-                var get = GetOrder(id_user);
+                var get = GetOrder(user_id);
                 if (get != null)
                 {
                     if (get.item == null)
@@ -218,12 +218,12 @@ namespace OrderFood
                 else
                 {
                     var o = new Order();
-                    o.id_user = id_user;
+                    o.user_id = user_id;
                     o.item = new Dictionary<int, int>();
                     o.item.Add(id_food, slg);
                     db.Order.Add(o);
                 }
-                CalculateTotalMoney(id_user);
+                CalculateTotalMoney(user_id);
                 var c = JsonConvert.SerializeObject(db, Formatting.Indented);
                 File.WriteAllText(file, c);
                 return true;
@@ -235,25 +235,25 @@ namespace OrderFood
         }
 */
         ///thực đơn
-        public List<Order> ListOrder()
+/*        public List<Order> ListOrder()
         {
             return db.Order;
         }      
         public Order GetOrder(int user_id)
         {
-            return ListOrder().FirstOrDefault(x => x.id_user == user_id);
-        }
-/*        public void XoaThucDon(int id_user)
+            return ListOrder().FirstOrDefault(x => x.user_id == user_id);
+        }*/
+/*        public void XoaThucDon(int user_id)
         {
             try
             {
-                var get = GetOrder(id_user);
+                var get = GetOrder(user_id);
                 if (get != null)
                 {
                     get.item.Clear();
                 }
-                GetUser(id_user).money = 0;
-                CalculateTotalMoney(id_user);
+                GetUser(user_id).money = 0;
+                CalculateTotalMoney(user_id);
                 var c = JsonConvert.SerializeObject(db, Formatting.Indented);
                 File.WriteAllText(file, c);
             }
@@ -263,11 +263,11 @@ namespace OrderFood
             }
         }
 */        
-/*        public bool ChangeQuantity(int id_user, int id_food, int sl)
+/*        public bool ChangeQuantity(int user_id, int id_food, int sl)
         {
             try
             {
-                var o = GetOrder(id_user);
+                var o = GetOrder(user_id);
                 if (o != null)
                 {
                     if (o.item.ContainsKey(id_food))
@@ -288,11 +288,11 @@ namespace OrderFood
             }
         }
 */        
-/*        public bool DeleteDishInOrder(int id_user, int id_food)
+/*        public bool DeleteDishInOrder(int user_id, int id_food)
         {
             try
             {
-                var o = GetOrder(id_user);
+                var o = GetOrder(user_id);
                 if (o != null)
                 {
                     if (o.item.ContainsKey(id_food))
@@ -320,7 +320,7 @@ namespace OrderFood
         {
             return ListCategory().SingleOrDefault(x => x.id == id);
         }*/
-        public int CreateIDCategory()
+        /*public int CreateIDCategory()
         {
             int max = 0;
             var list = ListCategory();
@@ -331,6 +331,6 @@ namespace OrderFood
             }
             return max + 1;
 
-        }      
+        }     */ 
     }
 }

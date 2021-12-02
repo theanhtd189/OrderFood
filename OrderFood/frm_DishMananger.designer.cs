@@ -1,7 +1,7 @@
 ﻿
 namespace OrderFood
 {
-    partial class frm_List_of_dishes
+    partial class frm_DishMananger
     {
         /// <summary>
         /// Required designer variable.

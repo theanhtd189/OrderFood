@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OrderFood.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,13 +11,13 @@ using System.Windows.Forms;
 
 namespace OrderFood
 {
-    public partial class frm_List_of_dishes : Form
+    public partial class frm_DishMananger : Form
     {
         int dong;
         int i;
-        Function f = new Function();
+        DishModel f = new DishModel();
         List<Dish> list;
-        public frm_List_of_dishes()
+        public frm_DishMananger()
         {
             InitializeComponent();
             list = f.ListDish();

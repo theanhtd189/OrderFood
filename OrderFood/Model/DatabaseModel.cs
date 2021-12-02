@@ -14,7 +14,6 @@ namespace OrderFood.Model
     /// </summary>
     abstract public class DatabaseModel
     {
-        public string json;
         public string file;
         public Database db;
         public DatabaseModel()
@@ -22,6 +21,10 @@ namespace OrderFood.Model
             string filename = ConfigurationManager.AppSettings.Get("DataSourceFile");// Get the file containing the data from the "app.config" file
             file = GetDataSourcePath(filename); //Find the file's path in the project
             db = JsonConvert.DeserializeObject<Database>(File.ReadAllText(file)); //Convert json data to executable data for the program
+        }
+        public void ReloadDatabase()
+        {
+            db = JsonConvert.DeserializeObject<Database>(File.ReadAllText(file)); 
         }
         // A method to get file's path in the solution 
         public string GetDataSourcePath(string filename)
@@ -33,23 +36,23 @@ namespace OrderFood.Model
         }
         public List<User> ListUser()
         {
-            return db.User;
+            return db.Users;
         }
-        public List<DishCategory> ListCategory()
+        public List<DishCategory> ListDishCategory()
         {
-            return db.DishCategory;
+            return db.DishCategories;
         }
         public List<Dish> ListDish()
         {
-            return db.Dish;
+            return db.Dishes;
         }
         public List<Role> ListRole()
         {
-            return db.Role;
+            return db.Roles;
         }
         public List<Order> ListOrder()
         {
-            return db.Order;
+            return db.Orders;
         }
     }
 }

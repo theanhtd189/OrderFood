@@ -14,19 +14,19 @@ namespace OrderFood
 {
     public partial class frm_Account : Form
     {
-        int id_user;
+        int user_id;
         IUser f = new UserModel();
         bool edit = false;
         public frm_Account(int id)
         {
             InitializeComponent();
             pictureBox1.Image = Resource1.images;
-            this.id_user = id;
+            this.user_id = id;
             LoadUserName();
         }
         public void LoadUserName()
         {
-            txtNamee.Text = txtName.Text = f.GetUser(id_user).name;
+            txtNamee.Text = txtName.Text = f.GetUser(user_id).name;
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -44,7 +44,7 @@ namespace OrderFood
                     }    
                     else
                     {
-                        f.EditUser(id_user,txtPass.Text,txtNamee.Text);
+                        f.EditUser(user_id,txtPass.Text,txtNamee.Text);
                         MessageBox.Show("Changed successfully!");
                         LoadUserName();
                     }    
@@ -55,7 +55,7 @@ namespace OrderFood
             }
             else
             {
-                f.EditUser(id_user, null, txtNamee.Text);
+                f.EditUser(user_id, null, txtNamee.Text);
                 MessageBox.Show("Changed successfully!");
                 LoadUserName();
             }    

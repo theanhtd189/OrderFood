@@ -10,7 +10,7 @@ namespace OrderFood.Model
     public class AccountModel : DatabaseModel
     {
         /// <summary>
-        /// Check given id is admin or not
+        /// Check given user id is admin or not
         /// </summary>
         /// <returns>True if admin or not return false</returns>
         public bool CheckIsAdmin(int user_id)
@@ -23,8 +23,9 @@ namespace OrderFood.Model
         }
         public Role GetRole(int user_id)
         {
-            IUser u = new UserModel();
-            return ListRole().FirstOrDefault(x => x.id == u.GetUser(user_id).role_id);
+            UserModel u = new UserModel();
+            var role_id = u.GetUser(user_id).role_id;
+            return ListRole().FirstOrDefault(x => x.id == role_id);
         }
 
     }

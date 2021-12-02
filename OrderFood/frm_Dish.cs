@@ -14,13 +14,13 @@ namespace OrderFood
 {
     public partial class frm_Dish : Form
     {
-        Function f = new Function();
         Dish m = new Dish();
         DishCategoryModel f_dc = new DishCategoryModel();
+        DishModel f_dish = new DishModel();
         public frm_Dish(int id)
         {
             InitializeComponent();
-            m = f.GetDish(id);
+            m = f_dish.GetDish(id);
             this.Text= "Dish infomation: "+ m.name;
         }
         public frm_Dish()

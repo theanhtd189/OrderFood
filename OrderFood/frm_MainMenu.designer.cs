@@ -35,6 +35,7 @@ namespace OrderFood
             this.tsAccount = new System.Windows.Forms.ToolStripMenuItem();
             this.tsDeleteAll = new System.Windows.Forms.ToolStripMenuItem();
             this.tsDishManager = new System.Windows.Forms.ToolStripMenuItem();
+            this.accountManangerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.center = new System.Windows.Forms.FlowLayoutPanel();
             this.txtTotal = new System.Windows.Forms.Label();
             this.lb = new System.Windows.Forms.Label();
@@ -46,6 +47,7 @@ namespace OrderFood
             this.btnThaydoi = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.lbHeader = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.right.SuspendLayout();
             this.pnlChinh.SuspendLayout();
@@ -75,7 +77,8 @@ namespace OrderFood
             this.tsListDC,
             this.tsAccount,
             this.tsDeleteAll,
-            this.tsDishManager});
+            this.tsDishManager,
+            this.accountManangerToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
@@ -94,21 +97,28 @@ namespace OrderFood
             this.tsAccount.Name = "tsAccount";
             this.tsAccount.Size = new System.Drawing.Size(269, 24);
             this.tsAccount.Text = "Account Infomation";
-            this.tsAccount.Click += new System.EventHandler(this.thôngTinTàiKhoảnToolStripMenuItem_Click);
+            this.tsAccount.Click += new System.EventHandler(this.tsAccountInfo);
             // 
             // tsDeleteAll
             // 
             this.tsDeleteAll.Name = "tsDeleteAll";
             this.tsDeleteAll.Size = new System.Drawing.Size(269, 24);
             this.tsDeleteAll.Text = "Delete All Item ";
-            this.tsDeleteAll.Click += new System.EventHandler(this.xóaMónĂnToolStripMenuItem_Click);
+            this.tsDeleteAll.Click += new System.EventHandler(this.DeleteAll);
             // 
             // tsDishManager
             // 
             this.tsDishManager.Name = "tsDishManager";
             this.tsDishManager.Size = new System.Drawing.Size(269, 24);
-            this.tsDishManager.Text = "Dish Category Mananger";
+            this.tsDishManager.Text = "Dish Mananger";
             this.tsDishManager.Click += new System.EventHandler(this.tsDishManager_Click);
+            // 
+            // accountManangerToolStripMenuItem
+            // 
+            this.accountManangerToolStripMenuItem.Name = "accountManangerToolStripMenuItem";
+            this.accountManangerToolStripMenuItem.Size = new System.Drawing.Size(269, 24);
+            this.accountManangerToolStripMenuItem.Text = "Account Mananger";
+            this.accountManangerToolStripMenuItem.Click += new System.EventHandler(this.accountManangerToolStripMenuItem_Click);
             // 
             // center
             // 
@@ -236,7 +246,6 @@ namespace OrderFood
             this.btnXoa.TabIndex = 0;
             this.btnXoa.Text = "Delete";
             this.btnXoa.UseVisualStyleBackColor = false;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // lbHeader
             // 
@@ -251,12 +260,23 @@ namespace OrderFood
             this.lbHeader.Text = "User\'s Name";
             this.lbHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(77, 267);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // frm_MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1323, 622);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.lbHeader);
             this.Controls.Add(this.right);
@@ -298,5 +318,7 @@ namespace OrderFood
         private System.Windows.Forms.Button btnThaydoi;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.ToolStripMenuItem tsDishManager;
+        private System.Windows.Forms.ToolStripMenuItem accountManangerToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }

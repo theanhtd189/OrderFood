@@ -55,8 +55,8 @@ namespace OrderFood
                 }
                 else
                 {
-                    IUser f = new UserModel(); //Call method to manipulate with the data of the "User" object
-                int stt = f.Login(txtUsername.Text, txtPassword.Text);
+                    UserModel f = new UserModel(); //Call method to manipulate with the data of the "User" object
+                    int stt = f.Login(txtUsername.Text, txtPassword.Text);
                 
                     if (stt != -1)
                     {
@@ -70,6 +70,7 @@ namespace OrderFood
                 }
             }
 
+        //Open sign up form 
         private void btnSignup_Click(object sender, EventArgs e)
         {
             frm_SignUp f = new frm_SignUp();

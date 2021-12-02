@@ -62,7 +62,6 @@ namespace OrderFood.Interface
         /// <returns>True if successful, or not return fasle</returns>
         bool EditUser(int id, string password, string name);
 
-        //Get the amount to be paid when the customer has placed the order
-        int GetMoney(string user_id);
+
     }
 }

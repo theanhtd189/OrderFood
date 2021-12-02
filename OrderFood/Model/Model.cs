@@ -12,7 +12,7 @@ namespace OrderFood.Model
         public string password { get; set; }
         public string name { get; set; }
         public int role_id { get; set; }
-        public int money { get; set; }
+        public double money { get; set; }
     }
     /// <summary>
     ///Class represents the "Role" object
@@ -33,7 +33,7 @@ namespace OrderFood.Model
         public List<string> description { get; set; }
         public string image { get; set; }
         public List<string> ingredient { get; set; }
-        public int price { get; set; }
+        public double price { get; set; }
     }
     /// <summary>
     ///Class represents the "DishCategory" object
@@ -48,7 +48,7 @@ namespace OrderFood.Model
     /// </summary>
     public class Order
     {
-        public int id_user { get; set; }
+        public int user_id { get; set; }
         public Dictionary<int, int> item { get; set; }
     }
     /// <summary>
@@ -59,23 +59,23 @@ namespace OrderFood.Model
         /// <summary>
         /// List containing records of object "User"
         /// </summary>
-        public List<User> User { get; set; }
+        public List<User> Users { get; set; }
         /// <summary>
         /// List containing records of object "Dish"
         /// </summary>
-        public List<Dish> Dish { get; set; }
+        public List<Dish> Dishes { get; set; }
         /// <summary>
         /// List containing records of object "DishCategory"
         /// </summary>
-        public List<DishCategory> DishCategory { get; set; }
+        public List<DishCategory> DishCategories { get; set; }
         /// <summary>
         /// List containing records of object "Order"
         /// </summary>
-        public List<Order> Order { get; set; }
+        public List<Order> Orders { get; set; }
         /// <summary>
         /// List containing records of object "Role"
         /// </summary>
-        public List<Role> Role { get; set; }
+        public List<Role> Roles { get; set; }
     }
 
 }

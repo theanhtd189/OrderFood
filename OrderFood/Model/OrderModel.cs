@@ -23,17 +23,17 @@ namespace OrderFood.Model
             throw new NotImplementedException();
         }
 
-        public void DeleteOrder(int id_user)
+        public void DeleteOrder(int user_id)
         {
             try
             {
-                var get = GetOrder(id_user);
+                var get = GetOrder(user_id);
                 if (get != null)
                 {
                     get.item.Clear();
                 }
-                new UserModel().GetUser(id_user).money = 0;
-                CalculateTotalMoney(id_user);
+                new UserModel().GetUser(user_id).money = 0;
+                CalculateTotalMoney(user_id);
                 var c = JsonConvert.SerializeObject(db, Formatting.Indented);
                 File.WriteAllText(file, c);
             }
@@ -43,11 +43,11 @@ namespace OrderFood.Model
             }
         }
 
-        public bool EditOrder(int id_user, int id_food, int sl)
+        public bool EditOrder(int user_id, int id_food, int sl)
         {
             try
             {
-                var o = GetOrder(id_user);
+                var o = GetOrder(user_id);
                 if (o != null)
                 {
                     if (o.item.ContainsKey(id_food))
@@ -76,13 +76,13 @@ namespace OrderFood.Model
 
         public Order GetOrder(int user_id)
         {
-            return ListOrder().FirstOrDefault(x => x.id_user == user_id);
+            return db.Orders.FirstOrDefault(x => x.user_id == user_id);
         }
-        public bool AddDishToOrder(int id_user, int id_food, int slg = 1)
+        public bool AddDishToOrder(int user_id, int id_food, int slg = 1)
         {
             try
             {
-                var get = GetOrder(id_user);
+                var get = GetOrder(user_id);
                 if (get != null)
                 {
                     if (get.item == null)
@@ -98,27 +98,33 @@ namespace OrderFood.Model
                 else
                 {
                     var o = new Order();
-                    o.id_user = id_user;
+                    o.user_id = user_id;
                     o.item = new Dictionary<int, int>();
                     o.item.Add(id_food, slg);
-                    db.Order.Add(o);
+                    db.Orders.Add(o);
                 }
-                CalculateTotalMoney(id_user);
-                var c = JsonConvert.SerializeObject(db, Formatting.Indented);
-                File.WriteAllText(file, c);
-                return true;
+                var up = CalculateTotalMoney(user_id);
+                if (up)
+                {
+                    var c = JsonConvert.SerializeObject(db, Formatting.Indented);
+                    File.WriteAllText(file, c);
+                    return true;
+                }
+                else
+                return false;
+                
             }
             catch (Exception x)
             {
                 throw x;
             }
         }
-        public void CalculateTotalMoney(int id_user)
+        public bool CalculateTotalMoney(int user_id)
         {
             try
             {
-                var t = 0;
-                var td = GetOrder(id_user);
+                double t = 0;
+                var td = GetOrder(user_id);
 
                 if (td != null && td.item.Count > 0)
                 {
@@ -130,20 +136,20 @@ namespace OrderFood.Model
                         t = t + food.price * sl;
                     }
                 }
-                new UserModel().GetUser(id_user).money = t;
-                var c = JsonConvert.SerializeObject(db, Formatting.Indented);
-                File.WriteAllText(file, c);
+
+                var up = new UserModel().ChangeMoney(user_id,t);
+                return up;
             }
             catch (Exception x)
             {
                 throw x;
             }
         }
-        public bool DeleteItemInOrder(int id_user, int id_food)
+        public bool DeleteItemInOrder(int user_id, int id_food)
         {
             try
             {
-                var o = GetOrder(id_user);
+                var o = GetOrder(user_id);
                 if (o != null)
                 {
                     if (o.item.ContainsKey(id_food))

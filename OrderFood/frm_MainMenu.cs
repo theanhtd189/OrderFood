@@ -22,6 +22,7 @@ namespace OrderFood
         DishModel f_dish = new DishModel();
         DishCategoryModel f_dc = new DishCategoryModel();
         int user_id;
+
         public frm_MainMenu(int id)
         {
             InitializeComponent();
@@ -32,11 +33,10 @@ namespace OrderFood
             //CreateCart();
             Create_Order_Detail();
             Load_List_Dish_Category_To_Menu();
-            if(f_account.CheckIsAdmin(user_id)) //Check if the logged in user is "Admin" or "Customer"
+            if(!f_account.CheckIsAdmin(user_id)) //Check if the logged in user is "Admin" or "Customer"
             {
                 tsDishManager.Visible = false;
             }
-
         }
         public frm_MainMenu()
         {
@@ -119,7 +119,7 @@ namespace OrderFood
                         btnRemoveDishItem.Text = "Remove";
                         btnRemoveDishItem.AutoSize = true;
                         btnRemoveDishItem.UseVisualStyleBackColor = false;
-                        btnRemoveDishItem.Click += new System.EventHandler(this.btnXoa_Click);
+                        btnRemoveDishItem.Click += new System.EventHandler(this.btnRemoveSingleItem);
 
                         // print single dish infomation as a text
                         Label lb = new Label();
@@ -146,7 +146,7 @@ namespace OrderFood
         }
         public void Load_List_Dish_Category_To_Menu()
         {
-            var list = f_dc.ListCategory();
+            var list = f_dc.ListDishCategory();
             if (list != null)
             {
                 foreach (var item in list)
@@ -158,7 +158,6 @@ namespace OrderFood
                     it.Click += new System.EventHandler(loai_Clicked);
                     tsListDC.DropDownItems.Add(it);
                 }
-
             }
         }
 
@@ -339,8 +338,11 @@ namespace OrderFood
         }
         public void ReLoad()
         {
-            f_order.CalculateTotalMoney(user_id);
-            txtTotal.Text = "Total: " + f_user.GetUser(user_id).money.ToString();
+            var up = f_order.CalculateTotalMoney(user_id);
+            if (up)
+                txtTotal.Text = "Total: " + "$" + f_user.GetUser(user_id).money.ToString();
+            else
+                MessageBox.Show("Some error occured!");
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -361,10 +363,6 @@ namespace OrderFood
 
         private void button3_Click(object sender, EventArgs e)
         {
-            /* ThucDon fm = new ThucDon(user_id);
-             this.Hide();
-             fm.ShowDialog();
-             this.Show();*/
             DeleteCard();
             f_order.DeleteOrder(user_id);
             CreateCart();
@@ -373,7 +371,7 @@ namespace OrderFood
 
         private void button2_Click(object sender, EventArgs e)
         {
-            using (frm_List_of_dishes frm = new frm_List_of_dishes())
+            using (frm_DishMananger frm = new frm_DishMananger())
             {
                 frm.ShowDialog();
             }
@@ -385,38 +383,18 @@ namespace OrderFood
         {
 
         }
-
-        private void xóaMónĂnToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DeleteCard();
-            f_order.DeleteOrder(user_id);
-            CreateCart();
-            ReLoad();
-        }
-
-        private void thôngTinTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frm_Account frm = new frm_Account(user_id);
-            this.Hide();
-            frm.ShowDialog();
-
-
-            this.Show();
-        }
-
-        private void btnXoa_Click(object sender, EventArgs e)
+        private void btnRemoveSingleItem(object sender, EventArgs e)
         {
             Button triggeredButton = (Button)sender;
             var up = f_order.DeleteItemInOrder(user_id, int.Parse(triggeredButton.Name));
             if (!up)
-                MessageBox.Show("Lỗi");
+                MessageBox.Show("Failed");
             else
             {
                 Create_Order_Detail();
                 ReLoad();
             }
         }
-
         private void btnChangeQuantity_Click(object sender, EventArgs e)
         {
             Button triggeredButton = (Button)sender;
@@ -424,38 +402,61 @@ namespace OrderFood
             try
             {
                 string input = Microsoft.VisualBasic.Interaction.InputBox(f_dish.GetDish(l[0]).name,
-                       "Thay đổi số lượng",
+                       "Change the number of the item",
                        triggeredButton.Name,
                        0,
                        0);
                 if (string.IsNullOrEmpty(input) || int.Parse(input) <= 0)
                 {
-                    //không nhập gì hoặc nhập 0
+                    //When the user enters the number 0
                 }
                 else
-                //số lượng đc thay đổi
                 {
                     var up = f_order.EditOrder(user_id, l[0], int.Parse(input));
                     if (!up)
-                        MessageBox.Show("Lỗi");
+                        MessageBox.Show("Failed!");
                     else
                     {
                         Create_Order_Detail();
                         ReLoad();
-
                     }
                 }
             }
             catch
             {
-                MessageBox.Show("Số lượng không hợp lệ");
+                MessageBox.Show("Invalid number!");
             }
         }
-
         private void tsDishManager_Click(object sender, EventArgs e)
         {
-            frm_List_of_dishes frm = new frm_List_of_dishes();
+            frm_DishMananger frm = new frm_DishMananger();
             frm.ShowDialog();
+        }
+
+        private void accountManangerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_AccountManager frm = new frm_AccountManager();
+            frm.ShowDialog();
+        }
+
+        private void tsAccountInfo(object sender, EventArgs e)
+        {
+            frm_Account frm = new frm_Account(user_id);
+            this.Hide();
+            frm.ShowDialog();
+            this.Show();
+        }
+        private void DeleteAll(object sender, EventArgs e)
+        {
+            DeleteCard();
+            f_order.DeleteOrder(user_id);
+            CreateCart();
+            ReLoad();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            
         }
     }
 }

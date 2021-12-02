@@ -21,11 +21,11 @@ namespace OrderFood.Model
             {
                 if (password != null)
                 {
-                    ((IUser)this).GetUser(id).password = password;
+                    GetUser(id).password = password;
                 }
                 if (name != null)
                 {
-                    ((IUser)this).GetUser(id).name = name;
+                    GetUser(id).name = name;
                 }
                 var c = JsonConvert.SerializeObject(db, Formatting.Indented);
                 File.WriteAllText(file, c);
@@ -38,21 +38,35 @@ namespace OrderFood.Model
         }
         public User GetUser(int user_id)
         {
-            return ListUser().SingleOrDefault(x => x.id == user_id);
+            db = JsonConvert.DeserializeObject<Database>(File.ReadAllText(file));
+            return db.Users.SingleOrDefault(x => x.id == user_id);
         }
 
-        public int GetMoney(string user_id)
+        public double GetMoney(int user_id)
         {
-            throw new NotImplementedException();
+            return GetUser(user_id).money;
+        }
+
+        public bool ChangeMoney(int user_id, double m)
+        {
+            var u = GetUser(user_id);
+            if (u != null)
+            {
+                u.money = m;
+                var c = JsonConvert.SerializeObject(db, Formatting.Indented);
+                File.WriteAllText(file, c);
+                return true;
+            }
+            return false;
         }
 
         public User GetUser(string user_name)
         {
-            return ListUser().SingleOrDefault(x => x.username == user_name);
+            return db.Users.SingleOrDefault(x => x.username == user_name);
         }
         public int Login(string username, string password)
         {
-            var o = ListUser().SingleOrDefault(x => x.username == username);
+            var o = db.Users.SingleOrDefault(x => x.username == username);
             if (o != null)
             {
                 if (o.password == password)
@@ -66,10 +80,10 @@ namespace OrderFood.Model
         {
             try
             {
-                var obj = ((IUser)this).GetUser(username);
+                var obj = GetUser(username);
                 if (obj == null)
                 {
-                    db.User.Add(new User
+                    db.Users.Add(new User
                     {
                         id = CreateIDUser(),
                         name = name,
@@ -91,7 +105,7 @@ namespace OrderFood.Model
         public int CreateIDUser()
         {
             int max = 0;
-            var list = ListUser();
+            var list = db.Users;
             for (int i = 0; i < list.Count; i++)
             {
                 if (list[i].id > max)
@@ -104,7 +118,7 @@ namespace OrderFood.Model
         {
             try
             {
-                ListUser().Clear();
+                db.Users.Clear();
                 var c = JsonConvert.SerializeObject(db, Formatting.Indented);
                 File.WriteAllText(file, c);
                 return true;
@@ -119,10 +133,10 @@ namespace OrderFood.Model
         {
             try
             {
-                var o = ((IUser)this).GetUser(user_id);
+                var o = GetUser(user_id);
                 if (o != null)
                 {
-                    ListUser().Remove(o);
+                    db.Users.Remove(o);
                     var c = JsonConvert.SerializeObject(db, Formatting.Indented);
                     File.WriteAllText(file, c);
                     return true;
