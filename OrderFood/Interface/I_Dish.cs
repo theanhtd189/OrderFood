@@ -15,12 +15,8 @@ namespace OrderFood.Interface
         //Method to add Dish to database
         bool AddDish(Dish d);
 
-        bool AddDish(string dish_name);
         //Method to remove a Dish from database
-        bool DeleteDish(string Dish_id);
-
-        //Method to remove all Dish from database
-        bool DeleteAllDish();
+        bool DeleteDish(int Dish_id);
 
         //Get Dish from database with given "Dish ID"
         Dish GetDish(int Dish_id);

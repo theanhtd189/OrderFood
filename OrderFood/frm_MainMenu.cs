@@ -21,6 +21,7 @@ namespace OrderFood
         OrderModel f_order = new OrderModel();
         DishModel f_dish = new DishModel();
         DishCategoryModel f_dc = new DishCategoryModel();
+        bool IsAdmin = false;
         int user_id;
 
         public frm_MainMenu(int id)
@@ -32,10 +33,16 @@ namespace OrderFood
             Show_List_Food();
             Create_Order_Detail();
             Load_List_Dish_Category_To_Menu();
-            if(!f_account.CheckIsAdmin(user_id)) //Check if the logged in user is "Admin" or "Customer"
+            if(f_account.CheckIsAdmin(user_id)) //Check if the logged in user is "Admin" or "Customer"
             {
-                tsDishManager.Visible = false;
-                tsAccount.Visible = false;
+                IsAdmin = true;
+                tsDishManager.Visible = true;
+                tsAccount.Visible = true;
+                right.Visible = false;
+                lbHeader.Visible = false;
+                txtTotal.Visible = false;
+                center.Dock = DockStyle.Fill;
+                tsDeleteAll.Visible = false;
             }
         }
         public frm_MainMenu()
@@ -268,7 +275,7 @@ namespace OrderFood
                         //change.Height = pnl.Height;
                         change.Width = 50;
                         change.ForeColor = Color.Blue;
-                        change.Click += new System.EventHandler(this.change_Clicked);
+                        //change.Click += new System.EventHandler(this.change_Clicked);
                         change.Name = item.Key.ToString();
                         pnl.Controls.Add(button);
                         pnl.Controls.Add(lb);
@@ -283,11 +290,6 @@ namespace OrderFood
 
         }
 
-        private void change_Clicked(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         //Remove element from order list in UI
         public void DeleteCard()
         {
@@ -295,24 +297,31 @@ namespace OrderFood
             ReLoad();
         }
 
-        // When the button add dish is clicked, add that dish to the order list
+        // When the button below dish is clicked, add that dish to the order list
         private void btnAddItem_Clicked(object sender, EventArgs e)
         {
-            Button triggeredButton = (Button)sender;
-            var up = f_order.AddDishToOrder(user_id, int.Parse(triggeredButton.Name));
-            if (!up)
-                MessageBox.Show("Failed");
+            if (IsAdmin)
+            {
+                //Nothing gonna change for admin :v
+            }
             else
             {
-                Create_Order_Detail();
-                ReLoad();
+                Button triggeredButton = (Button)sender;
+                var up = f_order.AddDishToOrder(user_id, int.Parse(triggeredButton.Name));
+                if (!up)
+                    MessageBox.Show("Failed");
+                else
+                {
+                    Create_Order_Detail();
+                    ReLoad();
+                }
             }
+            
         }
         private void pic_Clicked(object sender, EventArgs e)
         {
             PictureBox triggered = (PictureBox)sender;
-
-            frm_Dish fm = new frm_Dish(int.Parse(triggered.Name));
+            frm_ViewDish fm = new frm_ViewDish(int.Parse(triggered.Name));
             this.Hide();
             fm.ShowDialog();
             this.Show();
@@ -357,7 +366,6 @@ namespace OrderFood
                 frm.ShowDialog();
             }
             ReLoad();
-
         }
 
         //Remove an item from order list in UI
@@ -432,9 +440,5 @@ namespace OrderFood
             ReLoad();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            
-        }
     }
 }

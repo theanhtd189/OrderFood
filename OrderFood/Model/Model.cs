@@ -30,9 +30,9 @@ namespace OrderFood.Model
         public int id { get; set; }
         public string name { get; set; }
         public int id_category { get; set; }
-        public List<string> description { get; set; }
+        public string description { get; set; }
         public string image { get; set; }
-        public List<string> ingredient { get; set; }
+        public string ingredient { get; set; }
         public double price { get; set; }
     }
     /// <summary>

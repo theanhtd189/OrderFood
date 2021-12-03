@@ -107,11 +107,11 @@
     <Compile Include="frm_Account.designer.cs">
       <DependentUpon>frm_Account.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_Dish.cs">
+    <Compile Include="frm_ViewDish.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_Dish.designer.cs">
-      <DependentUpon>frm_Dish.cs</DependentUpon>
+    <Compile Include="frm_ViewDish.designer.cs">
+      <DependentUpon>frm_ViewDish.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_Login.cs">
       <SubType>Form</SubType>
@@ -130,6 +130,12 @@
     </Compile>
     <Compile Include="frm_SignUp.designer.cs">
       <DependentUpon>frm_SignUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Dish.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Dish.Designer.cs">
+      <DependentUpon>frm_Dish.cs</DependentUpon>
     </Compile>
     <Compile Include="Function.cs" />
     <Compile Include="Interface\I_Dish.cs" />
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Dish.resx">
       <DependentUpon>frm_Dish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_ViewDish.resx">
+      <DependentUpon>frm_ViewDish.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Login.resx">
       <DependentUpon>frm_Login.cs</DependentUpon>

@@ -49,5 +49,15 @@ namespace OrderFood.Model
             return max + 1;
 
         }
+
+        public override int GetRowDataNumber()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void DeleteAll()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

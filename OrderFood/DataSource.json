@@ -78,55 +78,82 @@
       "id": 1,
       "name": "This is food 1",
       "id_category": 1,
-      "description": [
-        "tp abc",
-        "tp 123",
-        "aaaaa"
-      ],
+      "description": "aaaaa",
       "image": "",
-      "ingredient": [
-        "không có đâu"
-      ],
+      "ingredient": "không có đâu",
       "price": 456456.0
     },
     {
       "id": 2,
       "name": "This is food hihi",
       "id_category": 2,
-      "description": [
-        "tp abc"
-      ],
+      "description": "tp abc",
       "image": "",
-      "ingredient": [
-        "không có đâu"
-      ],
+      "ingredient": "không có đâu",
       "price": 34534.0
-    },
-    {
-      "id": 3,
-      "name": "This is food 3",
-      "id_category": 3,
-      "description": [
-        "tp abc"
-      ],
-      "image": "",
-      "ingredient": [
-        "không có đâu"
-      ],
-      "price": 3333.0
     },
     {
       "id": 4,
       "name": "This is food 44",
       "id_category": 4,
-      "description": [
-        "tp abc"
-      ],
+      "description": "tp abc",
       "image": "",
-      "ingredient": [
-        "không có đâu"
-      ],
+      "ingredient": "không có đâu",
       "price": 2222.0
+    },
+    {
+      "id": 5,
+      "name": "gghgh",
+      "id_category": 1,
+      "description": "nnononon",
+      "image": null,
+      "ingredient": "123142",
+      "price": 0.0
+    },
+    {
+      "id": 6,
+      "name": "Ahihhii",
+      "id_category": 0,
+      "description": "A",
+      "image": null,
+      "ingredient": "A",
+      "price": 0.0
+    },
+    {
+      "id": 7,
+      "name": "new",
+      "id_category": 1,
+      "description": "1232342234",
+      "image": null,
+      "ingredient": "3dsfsdf",
+      "price": 0.0
+    },
+    {
+      "id": 8,
+      "name": "new222",
+      "id_category": 0,
+      "description": "eee",
+      "image": null,
+      "ingredient": "e",
+      "price": 0.0
+    },
+    {
+      "id": 9,
+      "name": "88888",
+      "id_category": 0,
+      "description": "ttt",
+      "image": null,
+      "ingredient": "ttt",
+      "price": 0.0
+    },
+    {
+      "id": 10,
+      "name": "f",
+      "id_category": 2,
+      "description": "ff",
+      "image": null,
+      "ingredient": "ff",
+      "price": 0.0
     }
   ],
   "DishCategories": [

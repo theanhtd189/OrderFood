@@ -148,5 +148,15 @@ namespace OrderFood.Model
                 throw e;
             }
         }
+
+        public override int GetRowDataNumber()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void DeleteAll()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -21,6 +21,12 @@ namespace OrderFood.Model
             }
             return false;
         }
+
+        public override void DeleteAll()
+        {
+            throw new NotImplementedException();
+        }
+
         public Role GetRole(int user_id)
         {
             UserModel u = new UserModel();
@@ -28,5 +34,9 @@ namespace OrderFood.Model
             return ListRole().FirstOrDefault(x => x.id == role_id);
         }
 
+        public override int GetRowDataNumber()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

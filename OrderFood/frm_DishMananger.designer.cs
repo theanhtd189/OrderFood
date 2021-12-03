@@ -32,10 +32,11 @@ namespace OrderFood
             System.Windows.Forms.Button btnAdd;
             System.Windows.Forms.Button button1;
             System.Windows.Forms.Button btnA;
+            System.Windows.Forms.Button btnDelete;
             this.dgv = new System.Windows.Forms.DataGridView();
-            this.id_category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ingredient = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.image = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +44,7 @@ namespace OrderFood
             btnAdd = new System.Windows.Forms.Button();
             button1 = new System.Windows.Forms.Button();
             btnA = new System.Windows.Forms.Button();
+            btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,9 +53,10 @@ namespace OrderFood
             btnAdd.BackColor = System.Drawing.Color.BlueViolet;
             btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             btnAdd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            btnAdd.Location = new System.Drawing.Point(667, 44);
+            btnAdd.Location = new System.Drawing.Point(500, 36);
+            btnAdd.Margin = new System.Windows.Forms.Padding(2);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new System.Drawing.Size(104, 41);
+            btnAdd.Size = new System.Drawing.Size(78, 33);
             btnAdd.TabIndex = 1;
             btnAdd.Text = "Add New";
             btnAdd.UseVisualStyleBackColor = false;
@@ -64,13 +67,28 @@ namespace OrderFood
             button1.BackColor = System.Drawing.Color.Black;
             button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            button1.Location = new System.Drawing.Point(12, 44);
+            button1.Location = new System.Drawing.Point(9, 36);
+            button1.Margin = new System.Windows.Forms.Padding(2);
             button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(104, 41);
+            button1.Size = new System.Drawing.Size(78, 33);
             button1.TabIndex = 3;
             button1.Text = "Cancel";
             button1.UseVisualStyleBackColor = false;
             button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnA
+            // 
+            btnA.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            btnA.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            btnA.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            btnA.Location = new System.Drawing.Point(418, 36);
+            btnA.Margin = new System.Windows.Forms.Padding(2);
+            btnA.Name = "btnA";
+            btnA.Size = new System.Drawing.Size(78, 33);
+            btnA.TabIndex = 4;
+            btnA.Text = "Edit";
+            btnA.UseVisualStyleBackColor = false;
+            btnA.Click += new System.EventHandler(this.btnEdit_Click_1);
             // 
             // dgv
             // 
@@ -79,30 +97,22 @@ namespace OrderFood
             this.dgv.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id_category,
             this.id,
             this.name,
+            this.id_category,
             this.ingredient,
             this.description,
             this.image,
             this.price});
-            this.dgv.Location = new System.Drawing.Point(12, 122);
+            this.dgv.Location = new System.Drawing.Point(9, 99);
+            this.dgv.Margin = new System.Windows.Forms.Padding(2);
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
             this.dgv.RowHeadersWidth = 51;
             this.dgv.RowTemplate.Height = 24;
-            this.dgv.Size = new System.Drawing.Size(759, 398);
+            this.dgv.Size = new System.Drawing.Size(569, 323);
             this.dgv.TabIndex = 0;
             this.dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Select);
-            // 
-            // id_category
-            // 
-            this.id_category.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.id_category.DataPropertyName = "id_category";
-            this.id_category.HeaderText = "Category";
-            this.id_category.MinimumWidth = 6;
-            this.id_category.Name = "id_category";
-            this.id_category.ReadOnly = true;
             // 
             // id
             // 
@@ -112,7 +122,6 @@ namespace OrderFood
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
             this.id.ReadOnly = true;
-            this.id.Visible = false;
             // 
             // name
             // 
@@ -122,6 +131,15 @@ namespace OrderFood
             this.name.MinimumWidth = 6;
             this.name.Name = "name";
             this.name.ReadOnly = true;
+            // 
+            // id_category
+            // 
+            this.id_category.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.id_category.DataPropertyName = "id_category";
+            this.id_category.HeaderText = "Category";
+            this.id_category.MinimumWidth = 6;
+            this.id_category.Name = "id_category";
+            this.id_category.ReadOnly = true;
             // 
             // ingredient
             // 
@@ -162,32 +180,35 @@ namespace OrderFood
             this.price.Name = "price";
             this.price.ReadOnly = true;
             // 
-            // btnA
+            // btnDelete
             // 
-            btnA.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            btnA.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            btnA.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            btnA.Location = new System.Drawing.Point(506, 44);
-            btnA.Name = "btnA";
-            btnA.Size = new System.Drawing.Size(104, 41);
-            btnA.TabIndex = 4;
-            btnA.Text = "Edit";
-            btnA.UseVisualStyleBackColor = false;
-            btnA.Click += new System.EventHandler(this.btnEdit_Click_1);
+            btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            btnDelete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            btnDelete.Location = new System.Drawing.Point(336, 36);
+            btnDelete.Margin = new System.Windows.Forms.Padding(2);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new System.Drawing.Size(78, 33);
+            btnDelete.TabIndex = 5;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // frm_List_of_dishes
+            // frm_DishMananger
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(789, 531);
+            this.ClientSize = new System.Drawing.Size(592, 431);
+            this.Controls.Add(btnDelete);
             this.Controls.Add(btnA);
             this.Controls.Add(button1);
             this.Controls.Add(btnAdd);
             this.Controls.Add(this.dgv);
             this.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.Name = "frm_List_of_dishes";
-            this.Text = "Danh Sách Món Ăn";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "frm_DishMananger";
+            this.Text = "Dish manager";
             this.Load += new System.EventHandler(this.DanhSach_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
@@ -197,9 +218,9 @@ namespace OrderFood
         #endregion
 
         private System.Windows.Forms.DataGridView dgv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_category;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_category;
         private System.Windows.Forms.DataGridViewTextBoxColumn ingredient;
         private System.Windows.Forms.DataGridViewTextBoxColumn description;
         private System.Windows.Forms.DataGridViewTextBoxColumn image;

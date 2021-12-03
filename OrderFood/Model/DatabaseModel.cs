@@ -39,23 +39,30 @@ namespace OrderFood.Model
         }
         public List<User> ListUser()
         {
+            RefreshDatabase();
             return db.Users;
         }
         public List<DishCategory> ListDishCategory()
         {
+            RefreshDatabase();
             return db.DishCategories;
         }
         public List<Dish> ListDish()
         {
+            RefreshDatabase();
             return db.Dishes;
         }
         public List<Role> ListRole()
         {
+            RefreshDatabase();
             return db.Roles;
         }
         public List<Order> ListOrder()
         {
+            RefreshDatabase();
             return db.Orders;
         }
+        abstract public int GetRowDataNumber();
+        abstract public void DeleteAll();
     }
 }
