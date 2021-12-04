@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using OrderFood.Model;
+using OrderFood;
 
 namespace OrderFood.Interface
 {
@@ -13,7 +13,7 @@ namespace OrderFood.Interface
     interface IDishCategory
     {
         //Method to add DishCategory to database
-        bool AddDishCategory(DishCategoryModel d);
+        bool AddDishCategory(DishCategory d);
 
         //Method to remove a DishCategory from database
         bool DeleteDishCategory(int DishCategory_id);
@@ -25,6 +25,6 @@ namespace OrderFood.Interface
         DishCategory GetDishCategory(int DishCategory_id);
 
         //Method to change infomation of DishCategory
-        bool EditDishCategory(DishCategoryModel d);
+        bool EditDishCategory(DishCategory d);
     }
 }

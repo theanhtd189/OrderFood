@@ -14,7 +14,7 @@
       "password": "123456",
       "name": "Thế Anh Đào",
       "role_id": 1,
-      "money": 912912.0
+      "money": 495434.0
     },
     {
       "id": 44,
@@ -71,18 +71,25 @@
       "name": "haha",
       "role_id": 0,
       "money": 0.0
+    },
+    {
+      "id": 240,
+      "username": "ta1o9er",
+      "password": "123",
+      "name": "sss",
+      "role_id": 0,
+      "money": 0.0
+    },
+    {
+      "id": 241,
+      "username": "admi",
+      "password": "123",
+      "name": "ss",
+      "role_id": 0,
+      "money": 0.0
     }
   ],
   "Dishes": [
-    {
-      "id": 1,
-      "name": "This is food 1",
-      "id_category": 1,
-      "description": "aaaaa",
-      "image": "",
-      "ingredient": "không có đâu",
-      "price": 456456.0
-    },
     {
       "id": 2,
       "name": "This is food hihi",
@@ -197,7 +204,12 @@
     {
       "user_id": 234,
       "item": {
-        "1": 2
+        "4": 2,
+        "2": 1,
+        "1": 1,
+        "6": 1,
+        "7": 4,
+        "10": 2
       }
     }
   ],

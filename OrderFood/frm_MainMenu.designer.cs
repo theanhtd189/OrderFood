@@ -35,7 +35,7 @@ namespace OrderFood
             this.tsAccount = new System.Windows.Forms.ToolStripMenuItem();
             this.tsDeleteAll = new System.Windows.Forms.ToolStripMenuItem();
             this.tsDishManager = new System.Windows.Forms.ToolStripMenuItem();
-            this.accountManangerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsAccountManager = new System.Windows.Forms.ToolStripMenuItem();
             this.center = new System.Windows.Forms.FlowLayoutPanel();
             this.txtTotal = new System.Windows.Forms.Label();
             this.lb = new System.Windows.Forms.Label();
@@ -51,10 +51,10 @@ namespace OrderFood
             // 
             this.button5.BackColor = System.Drawing.SystemColors.Highlight;
             this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button5.Location = new System.Drawing.Point(58, 470);
-            this.button5.Margin = new System.Windows.Forms.Padding(2);
+            this.button5.Location = new System.Drawing.Point(77, 578);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(86, 25);
+            this.button5.Size = new System.Drawing.Size(115, 31);
             this.button5.TabIndex = 5;
             this.button5.Text = "Log out";
             this.button5.UseVisualStyleBackColor = false;
@@ -71,49 +71,49 @@ namespace OrderFood
             this.tsAccount,
             this.tsDeleteAll,
             this.tsDishManager,
-            this.accountManangerToolStripMenuItem});
+            this.tsAccountManager});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(206, 505);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(275, 622);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // tsListDC
             // 
             this.tsListDC.Name = "tsListDC";
-            this.tsListDC.Size = new System.Drawing.Size(201, 19);
+            this.tsListDC.Size = new System.Drawing.Size(269, 24);
             this.tsListDC.Text = "Dish Category";
             // 
             // tsAccount
             // 
             this.tsAccount.Name = "tsAccount";
-            this.tsAccount.Size = new System.Drawing.Size(201, 19);
+            this.tsAccount.Size = new System.Drawing.Size(269, 24);
             this.tsAccount.Text = "Account Infomation";
             this.tsAccount.Click += new System.EventHandler(this.tsAccountInfo);
             // 
             // tsDeleteAll
             // 
             this.tsDeleteAll.Name = "tsDeleteAll";
-            this.tsDeleteAll.Size = new System.Drawing.Size(201, 19);
+            this.tsDeleteAll.Size = new System.Drawing.Size(269, 24);
             this.tsDeleteAll.Text = "Delete All Item ";
             this.tsDeleteAll.Click += new System.EventHandler(this.DeleteAll);
             // 
             // tsDishManager
             // 
             this.tsDishManager.Name = "tsDishManager";
-            this.tsDishManager.Size = new System.Drawing.Size(201, 19);
+            this.tsDishManager.Size = new System.Drawing.Size(269, 24);
             this.tsDishManager.Text = "Dish Mananger";
             this.tsDishManager.Visible = false;
             this.tsDishManager.Click += new System.EventHandler(this.tsDishManager_Click);
             // 
-            // accountManangerToolStripMenuItem
+            // tsAccountManager
             // 
-            this.accountManangerToolStripMenuItem.Name = "accountManangerToolStripMenuItem";
-            this.accountManangerToolStripMenuItem.Size = new System.Drawing.Size(201, 19);
-            this.accountManangerToolStripMenuItem.Text = "Account Mananger";
-            this.accountManangerToolStripMenuItem.Visible = false;
-            this.accountManangerToolStripMenuItem.Click += new System.EventHandler(this.accountManangerToolStripMenuItem_Click);
+            this.tsAccountManager.Name = "tsAccountManager";
+            this.tsAccountManager.Size = new System.Drawing.Size(269, 24);
+            this.tsAccountManager.Text = "Account Mananger";
+            this.tsAccountManager.Visible = false;
+            this.tsAccountManager.Click += new System.EventHandler(this.accountManangerToolStripMenuItem_Click);
             // 
             // center
             // 
@@ -121,10 +121,10 @@ namespace OrderFood
             this.center.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.center.BackColor = System.Drawing.SystemColors.Window;
             this.center.Dock = System.Windows.Forms.DockStyle.Left;
-            this.center.Location = new System.Drawing.Point(206, 0);
-            this.center.Margin = new System.Windows.Forms.Padding(2);
+            this.center.Location = new System.Drawing.Point(275, 0);
+            this.center.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.center.Name = "center";
-            this.center.Size = new System.Drawing.Size(478, 505);
+            this.center.Size = new System.Drawing.Size(637, 622);
             this.center.TabIndex = 10;
             // 
             // txtTotal
@@ -133,10 +133,9 @@ namespace OrderFood
             this.txtTotal.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtTotal.Location = new System.Drawing.Point(684, 479);
-            this.txtTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.txtTotal.Location = new System.Drawing.Point(912, 590);
             this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(95, 26);
+            this.txtTotal.Size = new System.Drawing.Size(126, 32);
             this.txtTotal.TabIndex = 7;
             this.txtTotal.Text = "Total: $0";
             // 
@@ -146,10 +145,9 @@ namespace OrderFood
             this.lb.BackColor = System.Drawing.Color.Transparent;
             this.lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lb.Location = new System.Drawing.Point(38, 113);
-            this.lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb.Location = new System.Drawing.Point(51, 139);
             this.lb.Name = "lb";
-            this.lb.Size = new System.Drawing.Size(136, 29);
+            this.lb.Size = new System.Drawing.Size(169, 36);
             this.lb.TabIndex = 0;
             this.lb.Text = "WELCOME";
             // 
@@ -157,10 +155,10 @@ namespace OrderFood
             // 
             this.panel1.AutoSize = true;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(992, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Location = new System.Drawing.Point(1323, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(0, 505);
+            this.panel1.Size = new System.Drawing.Size(0, 622);
             this.panel1.TabIndex = 9;
             // 
             // right
@@ -173,11 +171,11 @@ namespace OrderFood
             this.right.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.right.Controls.Add(this.pnlChinh);
             this.right.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.right.Location = new System.Drawing.Point(683, 32);
-            this.right.Margin = new System.Windows.Forms.Padding(2);
+            this.right.Location = new System.Drawing.Point(911, 39);
+            this.right.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.right.Name = "right";
             this.right.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.right.Size = new System.Drawing.Size(313, 444);
+            this.right.Size = new System.Drawing.Size(416, 546);
             this.right.TabIndex = 11;
             // 
             // pnlChinh
@@ -186,8 +184,8 @@ namespace OrderFood
             this.pnlChinh.AutoSize = true;
             this.pnlChinh.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pnlChinh.BackColor = System.Drawing.Color.DarkViolet;
-            this.pnlChinh.Location = new System.Drawing.Point(307, 2);
-            this.pnlChinh.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlChinh.Location = new System.Drawing.Point(409, 2);
+            this.pnlChinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlChinh.Name = "pnlChinh";
             this.pnlChinh.Size = new System.Drawing.Size(0, 0);
             this.pnlChinh.TabIndex = 1;
@@ -198,20 +196,19 @@ namespace OrderFood
             this.lbHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbHeader.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbHeader.Location = new System.Drawing.Point(684, 0);
-            this.lbHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbHeader.Location = new System.Drawing.Point(912, 0);
             this.lbHeader.Name = "lbHeader";
-            this.lbHeader.Size = new System.Drawing.Size(308, 32);
+            this.lbHeader.Size = new System.Drawing.Size(411, 39);
             this.lbHeader.TabIndex = 12;
             this.lbHeader.Text = "User\'s Name";
             this.lbHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frm_MainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(992, 505);
+            this.ClientSize = new System.Drawing.Size(1323, 622);
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.lbHeader);
             this.Controls.Add(this.right);
@@ -221,7 +218,7 @@ namespace OrderFood
             this.Controls.Add(this.button5);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frm_MainMenu";
             this.Text = "Menu";
             this.menuStrip1.ResumeLayout(false);
@@ -247,6 +244,6 @@ namespace OrderFood
         private System.Windows.Forms.ToolStripMenuItem tsDeleteAll;
         private System.Windows.Forms.FlowLayoutPanel pnlChinh;
         private System.Windows.Forms.ToolStripMenuItem tsDishManager;
-        private System.Windows.Forms.ToolStripMenuItem accountManangerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsAccountManager;
     }
 }

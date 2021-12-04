@@ -20,14 +20,6 @@ namespace OrderFood.Interface
         /// <returns>True if successful, or not return false</returns>
         bool DeleteUser(int user_id);
 
-        //Method to remove all user from database
-        /// <summary>
-        /// Remove all user from database
-        /// </summary>
-        /// <returns>True if successful, or not return false</returns>
-        bool DeleteAllUser();
-
-
         //
         /// <summary>
         /// Get user from database with given "User ID"
@@ -42,18 +34,10 @@ namespace OrderFood.Interface
         /// <returns>Return that user if found or not return null</returns>
         User GetUser(string user_name);
 
-        //Method to create a new user 
-        /// <summary>
-        /// Create new account with given parameters
-        /// </summary>
-        /// <returns>True if successful, false if that username already exists</returns>
-        bool Signup(string username, string password, string name);
+        
 
-        /// <summary>
-        /// Method to login to program
-        /// </summary>
-        /// <returns>Return UserID if the information entered is correct, or not return -1</returns>
-        int Login(string username, string password);
+
+        bool AddUser(User u);
 
         //Method to change infomation of user
         /// <summary>

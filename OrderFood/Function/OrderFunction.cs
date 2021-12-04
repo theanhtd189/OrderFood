@@ -9,9 +9,12 @@ using System.Threading.Tasks;
 using System.Xml;
 using Formatting = Newtonsoft.Json.Formatting;
 
-namespace OrderFood.Model
+namespace OrderFood.Function
 {
-    public class OrderModel : DatabaseModel, IOrder
+    /// <summary>
+    /// The class contains methods to work with the "Order" in the database
+    /// </summary>
+    public class OrderFunction : DatabaseFunction, IOrder
     {
         public bool AddOrder(Order d)
         {
@@ -23,20 +26,26 @@ namespace OrderFood.Model
             throw new NotImplementedException();
         }
 
-        public void DeleteOrder(int user_id)
+        public bool DeleteOrder(int user_id)
         {
             try
             {
                 var get = GetOrder(user_id);
                 if (get != null)
                 {
-                    get.item.Clear();
+                    var up = DeleteOrder(user_id);
+                    if (up)
+                    {
+                        new UserFunction().GetUser(user_id).money = 0;
+                        CalculateTotalMoney(user_id);
+                        var c = JsonConvert.SerializeObject(db, Formatting.Indented);
+                        File.WriteAllText(file, c);
+                        return true;
+                    }
                 }
-                new UserModel().GetUser(user_id).money = 0;
-                CalculateTotalMoney(user_id);
-                var c = JsonConvert.SerializeObject(db, Formatting.Indented);
-                File.WriteAllText(file, c);
+                return false;
             }
+
             catch (Exception x)
             {
                 throw x;
@@ -132,12 +141,12 @@ namespace OrderFood.Model
                     {
                         var id_food = item.Key;
                         var sl = item.Value;
-                        var food = new DishModel().GetDish(item.Key);
+                        var food = new DishFunction().GetDish(item.Key);
                         t = t + food.price * sl;
                     }
                 }
 
-                var up = new UserModel().ChangeMoney(user_id,t);
+                var up = new UserFunction().ChangeMoney(user_id,t);
                 return up;
             }
             catch (Exception x)

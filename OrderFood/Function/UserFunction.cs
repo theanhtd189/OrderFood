@@ -7,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrderFood.Model
+namespace OrderFood.Function
 {
     /// <summary>
-    /// The abstract class contains methods to work with the "User" object in the database
+    /// The class contains methods to work with the "User" object in the database
     /// </summary>
-    public class UserModel : DatabaseModel, IUser
+    public class UserFunction : DatabaseFunction, IUser
     {
         
         public bool EditUser(int id, string password, string name)
@@ -42,11 +42,6 @@ namespace OrderFood.Model
             return db.Users.SingleOrDefault(x => x.id == user_id);
         }
 
-        public double GetMoney(int user_id)
-        {
-            return GetUser(user_id).money;
-        }
-
         public bool ChangeMoney(int user_id, double m)
         {
             var u = GetUser(user_id);
@@ -64,44 +59,18 @@ namespace OrderFood.Model
         {
             return db.Users.SingleOrDefault(x => x.username == user_name);
         }
-        public int Login(string username, string password)
+        public bool AddUser(User u)
         {
-            var o = db.Users.SingleOrDefault(x => x.username == username);
-            if (o != null)
+            var o = GetUser(u.username);
+            if (o == null)
             {
-                if (o.password == password)
-                {
-                    return o.id;
-                }
+                db.Users.Add(u); 
+                SaveChanges();
+                return true;
             }
-            return -1;
+            return false;
         }
-        public bool Signup(string username, string password, string name)
-        {
-            try
-            {
-                var obj = GetUser(username);
-                if (obj == null)
-                {
-                    db.Users.Add(new User
-                    {
-                        id = CreateIDUser(),
-                        name = name,
-                        username = username,
-                        password = password
-                    });
-                    var c = JsonConvert.SerializeObject(db, Formatting.Indented);
-                    File.WriteAllText(file, c);
-                    return true;
-                }
-                else
-                    return false;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
+
         public int CreateIDUser()
         {
             int max = 0;
@@ -114,20 +83,7 @@ namespace OrderFood.Model
             return max + 1;
         }
 
-        public bool DeleteAllUser()
-        {
-            try
-            {
-                db.Users.Clear();
-                var c = JsonConvert.SerializeObject(db, Formatting.Indented);
-                File.WriteAllText(file, c);
-                return true;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
+
 
         public bool DeleteUser(int user_id)
         {
@@ -151,12 +107,21 @@ namespace OrderFood.Model
 
         public override int GetRowDataNumber()
         {
-            throw new NotImplementedException();
+            return ListUser().Count;
         }
 
         public override void DeleteAll()
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Users.Clear();
+                var c = JsonConvert.SerializeObject(db, Formatting.Indented);
+                File.WriteAllText(file, c);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
     }
 }

@@ -15,7 +15,7 @@ namespace OrderFood
     {
         int currrent_row;
         int i = -1;
-        DishModel f = new DishModel();
+        DishFunction f = new DishFunction();
         public frm_DishMananger()
         {
             InitializeComponent();

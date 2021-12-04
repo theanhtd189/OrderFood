@@ -16,11 +16,11 @@ namespace OrderFood
 {
     public partial class frm_MainMenu : Form
     {
-        AccountModel f_account = new AccountModel();
-        UserModel f_user = new UserModel();
-        OrderModel f_order = new OrderModel();
-        DishModel f_dish = new DishModel();
-        DishCategoryModel f_dc = new DishCategoryModel();
+        AccountFunction f_account = new AccountFunction();
+        UserFunction f_user = new UserFunction();
+        OrderFunction f_order = new OrderFunction();
+        DishFunction f_dish = new DishFunction();
+        DishCategoryFunction f_dc = new DishCategoryFunction();
         bool IsAdmin = false;
         int user_id;
 
@@ -37,12 +37,13 @@ namespace OrderFood
             {
                 IsAdmin = true;
                 tsDishManager.Visible = true;
-                tsAccount.Visible = true;
+                tsAccountManager.Visible = true;
                 right.Visible = false;
                 lbHeader.Visible = false;
                 txtTotal.Visible = false;
                 center.Dock = DockStyle.Fill;
                 tsDeleteAll.Visible = false;
+
             }
         }
         public frm_MainMenu()

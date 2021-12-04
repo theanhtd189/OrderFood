@@ -15,8 +15,8 @@ namespace OrderFood
     public partial class frm_ViewDish : Form
     {
         Dish current_dish = new Dish();
-        DishCategoryModel f_dc = new DishCategoryModel();
-        DishModel f_dish = new DishModel();
+        DishCategoryFunction f_dc = new DishCategoryFunction();
+        DishFunction f_dish = new DishFunction();
         public frm_ViewDish(int id)
         {
             InitializeComponent();

@@ -15,7 +15,7 @@ namespace OrderFood
     public partial class frm_Account : Form
     {
         int user_id;
-        IUser f = new UserModel();
+        IUser f = new UserFunction();
         bool edit = false;
         public frm_Account(int id)
         {

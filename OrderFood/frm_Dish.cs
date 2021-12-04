@@ -14,8 +14,8 @@ namespace OrderFood
     public partial class frm_Dish : Form
     {
         bool add = false, edit = false;
-        DishModel f_dish = new DishModel();
-        DishCategoryModel f_dc = new DishCategoryModel();
+        DishFunction f_dish = new DishFunction();
+        DishCategoryFunction f_dc = new DishCategoryFunction();
         Dish current_dish ;
         int current_id = -1;
         public frm_Dish()

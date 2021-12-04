@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-namespace OrderFood.Model
+namespace OrderFood
 {
     /// <summary>
     ///Class represents the "User" object

@@ -45,14 +45,14 @@ namespace OrderFood
                 }
                 else
                 {
-                    IUser f = new UserModel();
+                    AccountFunction f = new AccountFunction();
                     var stt = f.Signup( txtUsername.Text,txtPassword.Text,txtFullname.Text);
                     if (stt)
                     {
                         MessageBox.Show("Sign Up Success!");
                     }    
                     else
-                        MessageBox.Show("Failed!");
+                        MessageBox.Show("This username already exists, please choose another one !");
                 }
             }    
             else

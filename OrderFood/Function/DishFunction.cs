@@ -7,15 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrderFood.Model
+namespace OrderFood.Function
 {
-    class DishModel : DatabaseModel, IDish
+    /// <summary>
+    /// The class contains methods to work with the "Dish" in the database
+    /// </summary>
+    class DishFunction : DatabaseFunction, IDish
     {
         public bool AddDish(Dish d)
         {
             try
             {
-                var o = GetList().FirstOrDefault(x=>x.name==d.name);
+                var o = ListDish().FirstOrDefault(x=>x.name==d.name);
                 if (o == null)
                 {
                     d.id = CreateIDDish();
@@ -107,11 +110,6 @@ namespace OrderFood.Model
         {
             return db.Dishes.Where(x => x.id_category == id).ToList();
         }
-        public List<Dish> GetList()
-        {
-            return db.Dishes;
-        }
-
         public override int GetRowDataNumber()
         {
             throw new NotImplementedException();
@@ -119,7 +117,7 @@ namespace OrderFood.Model
 
         public override void DeleteAll()
         {
-            throw new NotImplementedException();
+            db.Dishes.Clear();
         }
     }
 }

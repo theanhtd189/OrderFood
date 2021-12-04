@@ -55,7 +55,7 @@ namespace OrderFood
                 }
                 else
                 {
-                    UserModel f = new UserModel(); //Call method to manipulate with the data of the "User" object
+                    AccountFunction f = new AccountFunction(); //Call method to manipulate with the data of the "User" object
                     int stt = f.Login(txtUsername.Text, txtPassword.Text);
                 
                     if (stt != -1)

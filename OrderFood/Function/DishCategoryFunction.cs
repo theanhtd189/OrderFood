@@ -5,11 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using OrderFood.Interface;
 
-namespace OrderFood.Model
+namespace OrderFood.Function
 {
-    public class DishCategoryModel : DatabaseModel, IDishCategory
+    /// <summary>
+    /// The class contains methods to work with the "Dish Category" in the database
+    /// </summary>
+    public class DishCategoryFunction : DatabaseFunction, IDishCategory
     {
-        public bool AddDishCategory(DishCategoryModel d)
+        public bool AddDishCategory(DishCategory d)
         {
             throw new NotImplementedException();
         }
@@ -24,7 +27,7 @@ namespace OrderFood.Model
             throw new NotImplementedException();
         }
 
-        public bool EditDishCategory(DishCategoryModel d)
+        public bool EditDishCategory(DishCategory d)
         {
             throw new NotImplementedException();
         }

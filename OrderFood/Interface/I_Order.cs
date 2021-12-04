@@ -16,7 +16,7 @@ namespace OrderFood.Interface
         bool AddOrder(Order d);
 
         //Method to remove a Order from database
-        void DeleteOrder(int user_id);
+        bool DeleteOrder(int user_id);
 
         //Method to remove all Order from database
         bool DeleteAllOrder();
